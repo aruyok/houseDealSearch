@@ -1,0 +1,59 @@
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: happy
+-- ------------------------------------------------------
+-- Server version	8.0.28
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `apart`
+--
+
+DROP TABLE IF EXISTS `apart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apart` (
+  `apart_num` int NOT NULL AUTO_INCREMENT,
+  `a_built_year` int DEFAULT NULL,
+  `a_name` varchar(45) DEFAULT NULL,
+  `latitude` varchar(50) DEFAULT NULL,
+  `longitude` varchar(50) DEFAULT NULL,
+  `img` varchar(45) DEFAULT NULL,
+  `dong_code` varchar(10) NOT NULL,
+  PRIMARY KEY (`apart_num`),
+  UNIQUE KEY `apart_num_UNIQUE` (`apart_num`),
+  KEY `fk_apart_dongcode1_idx` (`dong_code`),
+  CONSTRAINT `fk_apart_dongcode1` FOREIGN KEY (`dong_code`) REFERENCES `dongcode` (`dong_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apart`
+--
+
+LOCK TABLES `apart` WRITE;
+/*!40000 ALTER TABLE `apart` DISABLE KEYS */;
+INSERT INTO `apart` VALUES (1,2008,'광화문스페이스본(101동~105동)',NULL,NULL,NULL,'1111011500'),(2,1981,'롯데미도파광화문빌딩',NULL,NULL,NULL,'1111011700'),(3,2004,'킹스매너',NULL,NULL,NULL,'1111011800'),(4,2008,'광화문스페이스본(101동~105동)',NULL,NULL,NULL,'1111011500'),(5,1981,'롯데미도파광화문빌딩',NULL,NULL,NULL,'1111011700'),(6,2004,'킹스매너',NULL,NULL,NULL,'1111011800'),(7,2004,'경희궁의아침2단지',NULL,NULL,NULL,'1111011800'),(8,2003,'경희궁파크팰리스',NULL,NULL,NULL,'1111011800'),(9,2014,'이화에수풀',NULL,NULL,NULL,'1111016600'),(10,2014,'이화에수풀',NULL,NULL,NULL,'1111016600'),(11,2006,'렉스빌',NULL,NULL,NULL,'1111017000'),(12,1995,'아남1',NULL,NULL,NULL,'1111017100'),(13,1995,'아남1',NULL,NULL,NULL,'1111017100');
+/*!40000 ALTER TABLE `apart` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-03-21 23:50:03
